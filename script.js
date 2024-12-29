@@ -9,17 +9,21 @@ let selectedNumber = "";
 
 function selectNumber() {
   ratingNumber.forEach(number => {
-
-    number.classList.toggle("selected");
-
     number.addEventListener("click", () => {
       for (let i = 0; i < ratingNumber.length; i++) {
-        if (ratingNumber[i].classList.contains("selected")) {
+        if (ratingNumber[i].classList.contains("selected") 
+        && !(number.classList.contains("selected"))) {
           ratingNumber[i].classList.remove("selected");
         }
       }
+
+      if (number.classList.contains("selected")) {
+        selectedNumber = number.textContent;
+      } else {
+        selectedNumber = null;
+      }
       
-      selectedNumber = number.textContent;
+      number.classList.toggle("selected");
       numberError.style = "display: none";
     })
   });
