@@ -38,7 +38,7 @@ body {
 }
 
 .card-thank {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   text-align: center ;
@@ -58,7 +58,7 @@ body {
 }
 
 .card-rating {
-  display: none;;
+  display: block;;
 }
 
 .card-content {
@@ -126,10 +126,17 @@ body {
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 .button:hover {
   background-color: var(--white);
+}
+
+.number-error {
+  color: var(--orange);
+  text-align: center;
+  display: none;
 }
 
 /* SELECT STYLE */
