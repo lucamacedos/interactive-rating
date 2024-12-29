@@ -12,9 +12,18 @@
   box-sizing: border-box;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 a {
   display: block;
   text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 body {
@@ -28,9 +37,28 @@ body {
   font-family: "Overpass", serif;
 }
 
-.card-thanks {
-  display: none;
+.card-thank {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center ;
+  padding: 2.25rem !important;
+}
+
+.card-thank img {
+  margin-bottom: 32px;
+}
+
+.card-output {
+  background-color: var(--dark-blue);
+  padding: 5px 20px;
+  border-radius: 32px;
+  color: var(--orange);
+  margin-bottom: 32px;
+}
+
+.card-rating {
+  display: none;;
 }
 
 .card-content {
@@ -70,7 +98,7 @@ body {
   margin-bottom: 2rem;
 }
 
-.list-number  {
+.rating-number  {
   width: 51px;
   height: 51px;
   background-color: var(--dark-blue);
@@ -83,7 +111,7 @@ body {
   font-weight: bold;
 }
 
-.list-number:hover {
+.rating-number:hover {
   background-color: var(--white);
   color: var(--very-dark-blue);
 }
@@ -106,8 +134,17 @@ body {
 
 /* SELECT STYLE */
 
+.selected {
+  background-color: var(--orange);
+  color: var(--very-dark-blue);
+}
+
 
 @media (max-width: 375px) {
+  .card-output {
+    font-size: 14px;
+  }
+
   .card-content {
     padding: 1.5rem;
   }
@@ -132,7 +169,7 @@ body {
     margin-bottom: 1.5rem;
   }
   
-  .list-number  {
+  .rating-number  {
     width: 42px;
     height: 42px;
     font-size: 0.87rem;
