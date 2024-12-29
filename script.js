@@ -1,9 +1,9 @@
 const ratingNumber = document.querySelectorAll(".rating-number");
-const numberError = document.querySelector(".number-error");
+const submitError = document.querySelector(".number-error");
 const button = document.querySelector("#button");
-const containerRating = document.querySelector("#container-rating");
-const containerThank = document.querySelector("#container-thank");
-const cardSelected = document.querySelector("#card-selected");
+const ratingContainer = document.querySelector("#container-rating");
+const appreciationContainer = document.querySelector("#container-thank");
+const selectedRating = document.querySelector("#card-selected");
 
 let selectedNumber = "";
 
@@ -16,6 +16,9 @@ function selectNumber() {
           ratingNumber[i].classList.remove("selected");
         }
       }
+      
+      number.classList.toggle("selected");
+      submitError.style = "display: none";
 
       if (number.classList.contains("selected")) {
         selectedNumber = number.textContent;
@@ -23,25 +26,21 @@ function selectNumber() {
         selectedNumber = null;
       }
       
-      number.classList.toggle("selected");
-      numberError.style = "display: none";
     })
   });
 }
 
-function sendRating() {
+function submitRating() {
   button.addEventListener("click", () => {
     if (selectedNumber) {
-      cardSelected.textContent = selectedNumber;
-      containerRating.style = "display: none";
-      containerThank.style = "display: flex";
+      selectedRating.textContent = selectedNumber;
+      ratingContainer.style = "display: none";
+      appreciationContainer.style = "display: flex";
     } else {
-      numberError.style = "display: block";
+      submitError.style = "display: block";
     }
   })
 }
 
-
-
 selectNumber();
-sendRating();
+submitRating();
